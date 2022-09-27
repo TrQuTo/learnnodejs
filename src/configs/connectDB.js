@@ -1,17 +1,13 @@
 // get the client
-import mysql from "mysql2";
-// create the connection to database
-const connection = mysql.createConnection({
+import mysql from "mysql2/promise";
+// Create the connection pool. The pool-specific settings are the defaults
+const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   database: "nodejs_basic",
+  // waitForConnections: true,
+  // connectionLimit: 10,
+  // queueLimit: 0
 });
 
-// simple query
-connection.query("SELECT * FROM `users`", function (err, results, fields) {
-  console.log("Check mysql2 >>>>>>>>>>");
-  console.log(results); // results contains rows returned by server
-  console.log(results[0]);
-});
-
-export default connection;
+export default pool;

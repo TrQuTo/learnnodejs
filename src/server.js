@@ -6,7 +6,6 @@ import connection from "./configs/connectDB";
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
-console.log("Check>>>>>>: ", port);
 
 configViewEngine(app);
 initWebRoute(app);
